@@ -20,7 +20,7 @@ def add_header(r):
     r.headers['Cache-Control'] = 'public, max-age=0'
     return r
 
-@app.route("/hello")
+@app.route("/")
 def index():
 	config = KalturaConfiguration(4530233)
 	config.serviceUrl = "https://www.kaltura.com/"
