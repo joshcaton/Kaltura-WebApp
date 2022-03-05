@@ -13,7 +13,7 @@
       <h2>Kaltura Video Exercise</h2>
       <div><i>Josh Caton</i></div>
       <br>
-      <form action="next" method="post">
+      <form action="bonus" method="post">
           {% for message in get_flashed_messages() %}
                <h5>{{ message }}</h5>
            {% endfor %}
@@ -60,7 +60,7 @@
                 </script>
             <div id = "buttons" style="display: none;">
               <label for="option">Click here to view the player with customized CSS -> </label>
-              <input class="btn btn-danger" type="submit" value="PLAYER CSS" id="next">
+              <input class="btn btn-danger" type="submit" value="PLAYER CSS" id="bonus">
             </div>
       </form>
   </body>
