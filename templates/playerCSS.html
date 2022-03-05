@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>CatonApp</title>
+      <link rel="shortcut icon" type="image/jpg" href="https://img.icons8.com/ios/50/000000/test-tube.png"/>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/player.css') }}">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  </head>
+  <body>
+      <br><br>
+      <h2>Kaltura Video Bonus Exercise</h2>
+      <div><i>Josh Caton</i></div>
+      <br>
+      <form action="greet" method="post">
+          {% for message in get_flashed_messages() %}
+               <h5>{{ message }}</h5>
+           {% endfor %}
+          <br>
+          <div align="center" class="form-group">
+          <div class="mx-auto " id="differentPlayer" style="width: 640px;height: 360px"></div>
+            <script type="text/javascript" src="https://cdnapisec.kaltura.com/p/4530233/embedPlaykitJs/uiconf_id/49734163"></script>
+              <script type="text/javascript">
+              $( document ).ready(function() {
+                  try {
+                    var kalturaPlayer = KalturaPlayer.setup({
+                      targetId: "differentPlayer",
+                      provider: {
+                        partnerId: 4530233,
+                        uiConfId: 49734163
+                      },
+                      playback: {
+                        //autoplay: true
+                        }
+                    });
+                    entryId = '{{e_id}}';
+
+                    kalturaPlayer.loadMedia({entryId: entryId}).then(() => {
+                      kalturaPlayer.ready().then(() => {
+                        const video = document.querySelector('video');
+                          video.addEventListener('play', (event) => {
+                            console.log('The Boolean paused property is now false. Either the ' +
+                            'play() method was called or the autoplay attribute was toggled.');
+                          });
+                      });
+                    });
+                  } catch (e) {
+                    console.error(e.message)
+                  }
+              });
+          </script>
+          <br>
+          <h6>Autoplay is now off. Click the custom play icon to log the event to the browser console.</h6>
+          <br>
+          <a class="btn btn-primary" href={{ url_for('.index') }}>BACK</a>
+      </form>
+  </body>
+</html>

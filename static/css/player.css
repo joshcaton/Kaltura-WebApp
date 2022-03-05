@@ -1,0 +1,39 @@
+body {
+	text-align: center;
+	background-color: #ff980040;
+}
+
+#differentPlayer .playkit-volume-control {
+	float: left;
+	width: 130px;
+	margin-right: 15px;
+}
+
+#differentPlayer .playkit-volume-control-bar .playkit-progress {
+	background-color: #dc3545 !important;
+}
+
+#differentPlayer .playkit-volume-control-bar {
+  transform: rotate(90deg);
+  position: absolute;
+	bottom: -40px;
+	left: 70px;
+	background-color: transparent;
+	box-shadow: none;
+	opacity: 0;
+	transition: visibility 0s, opacity 0.5s linear;
+	display: block;
+}
+
+#differentPlayer .playkit-volume-control-bar:hover {
+	visibility: visible;
+	opacity: 1;
+}
+
+#differentPlayer .playkit-seek-bar .playkit-progress-bar .playkit-progress {
+	background-color: #7bdd22 !important;
+}
+
+ #differentPlayer .playkit-icon-play{
+   background-image: url("https://img.icons8.com/emoji/96/000000/white-heart.png")
+}
