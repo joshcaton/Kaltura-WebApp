@@ -56,5 +56,5 @@ def index():
 
 @app.route("/bonus", methods=['POST', 'GET'])
 def greeter():
-	flash("Loaded your selection: " + str(request.form['option']))
+	flash("Loaded your previous selection: " + str(request.form['option']))
 	return render_template("playerCSS.html", e_id=str(request.form['option']))
