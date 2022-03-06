@@ -25,7 +25,7 @@ def index():
 	config = KalturaConfiguration(4530233)
 	config.serviceUrl = "https://www.kaltura.com/"
 	client = KalturaClient(config)
-	print("KalturaClient object instantiated");
+	print("KalturaClient object instantiated")
 
 	secret = "fe3397b78566adecf8de92e4ae747d3d"
 	user_id = "joshcaton@live.com"
@@ -37,7 +37,7 @@ def index():
 	ks = client.session.start(secret, user_id, k_type, partner_id, expiry, privileges)
 	client.setKs(ks)
 
-	print("KalturaClient connection started");
+	print("KalturaClient connection started")
 	filter = KalturaCategoryEntryFilter()
 	filter.categoryIdIn = "250036913, 250036923"
 	pager = KalturaFilterPager()
